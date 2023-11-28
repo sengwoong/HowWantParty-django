@@ -29,7 +29,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/gang/Downloads/333/HowWantParty-django/venv"
+set -gx VIRTUAL_ENV "/Users/gang/Downloads/BackendOrmi3-main/JWT4/venv"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
