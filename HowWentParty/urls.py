@@ -24,5 +24,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('product/', include('product_party_item.urls')),
     # path('blog/', include('blog.urls')),
-    path("accounts/", include("accounts.urls"))
+    path("accounts/", include("accounts.urls")),
+    path("chat/", include("chat_server.urls"))
 ]

@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'accounts',
     'product_party_item',
     'blog',
+    'chat_server',
 ]
 
 MIDDLEWARE = [

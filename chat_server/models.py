@@ -1,3 +1,11 @@
+# chatbot/models.py
 from django.db import models
 
-# Create your models here.
+class Conversation(models.Model):
+    prompt = models.CharField(max_length=512)
+    response = models.TextField()
+    def __str__(self):
+        return f"{self.prompt}: {self.response}"
+
+    class Meta:
+        app_label = 'chat_server'

@@ -5,11 +5,11 @@ class Product(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     index = models.CharField(max_length=100)
-    price = models.CharField(max_length=100)
+    price = models.CharField(max_length=100,default="0")
     content = models.CharField(max_length=100)
-    quantity = models.CharField(max_length=100)
-    location_x = models.CharField(max_length=100)
-    location_y= models.CharField(max_length=100)
+    quantity = models.CharField(max_length=100,default="0")
+    location_x = models.CharField(max_length=100,blank=True, null=True)
+    location_y= models.CharField(max_length=100,blank=True, null=True)
 
 class ProductImage(models.Model):
     product_id = models.ForeignKey(Product, related_name='product_id', on_delete=models.CASCADE)
