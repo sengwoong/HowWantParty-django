@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'product_party_item',
     'blog',
     'chat_server',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -60,10 +61,22 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
-ROOT_URLCONF = 'HowWentParty.urls'
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of allauth
+    'django.contrib.auth.backends.ModelBackend',
+    # allauth specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
 
+
+
+ROOT_URLCONF = 'HowWentParty.urls'
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3001",  # 허용하려는 클라이언트의 주소
+]
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -84,9 +97,6 @@ WSGI_APPLICATION = 'HowWentParty.wsgi.application'
 ACCOUNT_ADAPTER = 'accounts.adapters.CustomUserAccountAdapter'
 
 
-# REST_AUTH = {
-#     'REGISTER_SERIALIZER': 'accounts.serializers.CustomRegisterSerializer'
-# }
 
 LANGUAGE_CODE = 'ko-kr'
 

@@ -63,23 +63,15 @@ class CustomUser(AbstractUser):
     gender = models.CharField(max_length=6, choices=GENDER_OPTIONS)
     REQUIRED_FIELDS = []
 
-    def save(self, *args, **kwargs):
-        print("self.AbstractUser")
-        print(self.__dict__)
-        if not self.user_nick_name or not self.profile_image:
-            return 'static/images/default_gray.png'
-        # user_nick_name이 없는 경우에만 설정
-        if not self.user_nick_name:
-            self.user_nick_name = f'user_{str(uuid.uuid4())[:8]}'  # 랜덤 값 생성
-        if not self.user_id:
-            # 고유한 user_id를 생성하거나 설정하기 위한 로직을 여기에 추가
-            # 예를 들어 UUID 또는 다른 로직을 사용하여 고유한 ID를 생성할 수 있습니다.
-            self.user_id = f'user_{str(uuid.uuid4())[:8]}'
-        # user_id가 null이면 롤백
-   
 
-        super().save(*args, **kwargs)
 
+
+
+
+ 
+
+
+ 
     def get_cleaned_data(self):
         data = super().get_cleaned_data()
         data['profile_image'] = self.validated_data.get('profile_image', '')
