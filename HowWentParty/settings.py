@@ -74,9 +74,7 @@ AUTHENTICATION_BACKENDS = [
 
 
 ROOT_URLCONF = 'HowWentParty.urls'
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3001",  # 허용하려는 클라이언트의 주소
-]
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -96,6 +94,33 @@ TEMPLATES = [
 WSGI_APPLICATION = 'HowWentParty.wsgi.application'
 ACCOUNT_ADAPTER = 'accounts.adapters.CustomUserAccountAdapter'
 
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3001",
+
+     # 허용하려는 클라이언트의 주소
+]
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:3001",
+    "http://localhost:8003",
+]
+CORS_ALLOW_CREDENTIALS = True  # Add this line
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+CORS_ALLOW_HEADERS = [
+    'Accept',
+    'Accept-Encoding',
+    'Authorization',
+    'Content-Type',
+    'Origin',
+    'User-Agent',
+]
 
 
 LANGUAGE_CODE = 'ko-kr'
