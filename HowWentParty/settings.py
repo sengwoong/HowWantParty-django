@@ -94,6 +94,11 @@ TEMPLATES = [
 WSGI_APPLICATION = 'HowWentParty.wsgi.application'
 ACCOUNT_ADAPTER = 'accounts.adapters.CustomUserAccountAdapter'
 
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3001",
