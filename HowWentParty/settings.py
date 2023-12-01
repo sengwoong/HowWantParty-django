@@ -159,6 +159,16 @@ REST_FRAMEWORK = {
     ],
 }
 
+ACCOUNT_LOGOUT_ON_GET = True  # Log out when sending a GET request to the logout endpoint
+
+# Specify the custom user details serializer
+
+
+REST_AUTH_SERIALIZERS = {
+    'USER_DETAILS_SERIALIZER': 'accounts.serializers.CustomUserDetailsSerializer',
+}
+
+
 # settings.py
 # 여가수정
 # REST_AUTH_REGISTER_SERIALIZERS = {

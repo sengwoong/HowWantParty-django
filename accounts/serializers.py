@@ -1,8 +1,8 @@
 
 from dj_rest_auth.registration.serializers import RegisterSerializer
+from dj_rest_auth.serializers import UserDetailsSerializer
 from rest_framework import serializers
-
-
+from .models import CustomUser
     
 
 class CustomRegisterSerializer(RegisterSerializer):
@@ -28,4 +28,13 @@ class CustomRegisterSerializer(RegisterSerializer):
         print(user)
         return user
     
+
+
+
+class CustomUserDetailsSerializer(UserDetailsSerializer):
+    class Meta(UserDetailsSerializer.Meta):
+        model = CustomUser
+        fields = ('pk', 'email', 'profile_image', 'name', 'user_nick_name', 'user_classification', 'age', 'gender')
+
+
 
